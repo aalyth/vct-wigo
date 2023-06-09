@@ -7,6 +7,7 @@ body {
 
 .search-bar-container {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
@@ -17,7 +18,8 @@ body {
 	flex-direction: row;
 	justify-content: space-between;
 
-	position: relative;
+	position: absolute;
+	margin-top:-17.5vh;
 	width: 38vw;
 	height: 4vh;
 
@@ -38,7 +40,7 @@ body {
 }
 
 .search-bar #depth {
-	width: 13%;
+	width: 11.5%;
 	height: 100%;
 	padding: 0 1vw;
 	font-size: 16px;
@@ -54,7 +56,7 @@ body {
 
 .search-bar button {
 	height: 100%;
-	width: 7%;
+	width: 8.5%;
 	position:relative;
 	background-color: #f1f1f1;
 	border: none;
@@ -79,7 +81,7 @@ body {
 .logo-wrapper {
 	width: 100vw;
 	height: 32vh;
-	top: 8vh;
+	top: 3vh;
 	position: fixed;
 	display: inline-flex;
 	align-items: center;
@@ -90,11 +92,47 @@ body {
 	width: 34.5vh;
 }
 
-.error-inner {
-	display: none;
+.error {
+	margin-top: -7vh;
 	color: red;
 }
 
+.results-container::-webkit-scrollbar {
+  display: none;
+}
+
+.results-container {
+	-ms-overflow-style: none;  
+	scrollbar-width: none;  
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	overflow-x: scroll;
+	width: 100vw;
+	height: 46vh;
+
+	top: 47.5vh;
+}
+
+.result {
+	width: 32.5vw;
+	/*height: 12.5vh;*/
+	white-space: normal;
+	margin-bottom: 2vh;
+}
+
+.result a {
+	color: #3d3b33; 
+	font-weight:700;
+	font-size:22px;
+}
+
+.result p {
+	font-style: italic;
+	margin: 0;
+}
 
 /* this is so there's no scroll field in the depth bar */ 
 #depth::-webkit-outer-spin-button,

@@ -23,7 +23,7 @@ func wiki_scrape(c *gin.Context) {
 		return
 	}
 
-	res, err := Scrape("https://en.wikipedia.org/wiki/" + url, int(depth))
+	res, err := Scrape(url, int(depth))
 	if err != nil {
 		c.JSON(400, err)
 		return
@@ -43,5 +43,5 @@ func main() {
 		c.HTML(200, "home.html", "")
 	})
 
-	server.Run("localhost:1337")
+	server.Run("localhost:4242")
 }
