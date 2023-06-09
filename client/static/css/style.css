@@ -90,8 +90,13 @@ body {
 	width: 34.5vh;
 }
 
+.error-inner {
+	display: none;
+	color: red;
+}
 
-/**/ 
+
+/* this is so there's no scroll field in the depth bar */ 
 #depth::-webkit-outer-spin-button,
 #depth::-webkit-inner-spin-button {
     -webkit-appearance: none;

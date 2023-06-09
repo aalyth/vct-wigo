@@ -33,6 +33,7 @@ func wiki_scrape(c *gin.Context) {
 
 func main() {
 	server := gin.Default()
+	server.SetTrustedProxies(nil)
 
 	server.LoadHTMLGlob("../client/html/*.html")
 	server.Static("/static", "../client/static")
@@ -42,5 +43,5 @@ func main() {
 		c.HTML(200, "home.html", "")
 	})
 
-	server.Run("localhost:8080")
+	server.Run("localhost:1337")
 }
