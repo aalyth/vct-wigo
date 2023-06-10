@@ -23,15 +23,12 @@ func wiki_scrape(c *gin.Context) {
 		return
 	}
 
-	res, err := Scrape(url, int(depth))
-	if err != nil {
-		c.JSON(400, err)
-		return
-	}
+	res := Scrape(url, int(depth))
 	c.JSON(200, res)
 }
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	server := gin.Default()
 	server.SetTrustedProxies(nil)
 
@@ -43,5 +40,5 @@ func main() {
 		c.HTML(200, "home.html", "")
 	})
 
-	server.Run("localhost:4242")
+	server.Run("0.0.0.0:4000")
 }

@@ -115,13 +115,13 @@ func scrape(page string, depth int, scraped *sync.Map, wg *sync.WaitGroup, resul
 	*result = append(*result, curr)
 }
 
-func Scrape(url string, depth int) ([]Page, map[string]string) {
+func Scrape(url string, depth int) []Page {
 	var scraped sync.Map
 	var wg sync.WaitGroup
 	var res []Page
 
 	scrape(url, depth, &scraped, &wg, &res)
 	wg.Wait()
-	return res, nil 
+	return res 
 }
 

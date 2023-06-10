@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wigo
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wigo
+
+  template:
+    metadata:
+      labels:
+        app: wigo
+
+    spec:
+      containers:
+      - name: wigo 
+        image: wigo-img:latest 
+        imagePullPolicy: Never
+
+        ports:
+          - containerPort: 4000
+
+        resources:
+          requests:
+            cpu: 100m
+            memory: 500Mi
+
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 4000 
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 15
+          timeoutSeconds: 5
+
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 4000 
+            scheme: HTTP
+          initialDelaySeconds: 5
+          timeoutSeconds: 1

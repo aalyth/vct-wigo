@@ -25,7 +25,7 @@ async function handleRequest() {
 	const url = url_bar.value
 	const depth = parseInt(depth_bar.value)
 
-	if (depth < 1 || depth > 5 || isNaN(depth)) { 
+	if (depth < 1 || depth > 3 || isNaN(depth)) { 
 		error.innerHTML = 'Invalid depth value.'
 		return
 	}
