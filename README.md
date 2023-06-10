@@ -3,6 +3,7 @@
 In order to set up the project you need:
 * Linux machine / VM / WSL
 * [Docker](https://www.docker.com/) set up with [Kubernetes](https://docs.docker.com/desktop/kubernetes/)
+* [Kubectl](https://kubernetes.io/docs/tasks/tools/)
 ## Setup
 In order to run the project run the script `setup.sh` and it will automatically deploy everything for you.
 
