@@ -8,7 +8,9 @@ kubectl delete deployment wigo
 kubectl apply -f k8s/wigo.yaml
 
 kubectl delete hpa wigo
-kubectl autoscale deployment wigo --cpu-percent=60 --min=3 --max=12
+kubectl autoscale deployment wigo --cpu-percent=60 --min=3 --max=15
 
 kubectl delete service wigo
 kubectl expose deployment wigo --type=LoadBalancer --port=8080 --target-port=4000
+
+kubectl get hpa wigo -w

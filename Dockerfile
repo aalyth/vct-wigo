@@ -10,5 +10,4 @@ RUN go build -o /app/wigo
 
 EXPOSE 8080 
 
-# CMD [ "go run *.go" ]
 CMD ["/app/wigo"]
