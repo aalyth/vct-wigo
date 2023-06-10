@@ -4,7 +4,7 @@ metadata:
   name: wigo
 
 spec:
-  replicas: 3
+  #replicas: 3
   selector:
     matchLabels:
       app: wigo
@@ -25,8 +25,8 @@ spec:
 
         resources:
           requests:
-            cpu: 100m
-            memory: 500Mi
+            cpu: 100m     # 10% of a cpu core
+            memory: 200Mi # 200mb RAM
 
         livenessProbe:
           httpGet:
