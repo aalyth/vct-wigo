@@ -9,7 +9,7 @@ func def(c *gin.Context) {
 	c.IndentedJSON(200, "deeba")
 }
 
-func wiki_scrape(c *gin.Context) {
+func wiki_crawl(c *gin.Context) {
 	url := c.Query("url")
 	depth_ := c.Query("depth")
 
@@ -18,7 +18,7 @@ func wiki_scrape(c *gin.Context) {
 		c.JSON(400, gin.H{"Error": "invalid depth value."})
 		return
 	}
-	if depth < 1 || depth > 5 {
+	if depth < 1 || depth > 3 {
 		c.JSON(400, gin.H{"Error": "invalid depth - expected an int between 1 and 5."})
 		return
 	}
@@ -35,7 +35,7 @@ func main() {
 	server.LoadHTMLGlob("../client/html/*.html")
 	server.Static("/static", "../client/static")
 
-	server.GET("/api/wiki", wiki_scrape)
+	server.GET("/api/wiki", wiki_crawl)
 	server.GET("/", func (c *gin.Context) {
 		c.HTML(200, "home.html", "")
 	})

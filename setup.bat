@@ -1,7 +1,7 @@
 docker build -t wigo-img .
 
 minikube start
-timeout 30 > NUL
+timeout 15 > NUL
 minikube image load wigo-img
 kubectl delete deployment wigo
 kubectl apply -f k8s/wigo.yaml
