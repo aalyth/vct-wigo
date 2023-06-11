@@ -144,3 +144,25 @@ body {
 input[type=number] {
     -moz-appearance:textfield; 
 }
+
+@media only screen and (min-width: 900px) and (max-width: 1300px) {
+	.search-bar {
+		width: 55vw;
+	}
+
+	.result {
+		width: 45vw;
+	}
+
+}
+
+@media only screen and (max-width: 900px) {
+	.search-bar {
+		width: 80vw;
+	}
+
+	.result {
+		width: 70vw;
+	}
+
+}

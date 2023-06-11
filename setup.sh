@@ -4,13 +4,13 @@ docker build -t wigo-img .
 kubectl delete -f components.yaml
 kubectl apply -f k8s/components.yaml # this is so there're no problems with the metrics-server
 
-kubectl delete deployment wigo
+kubectl delete deployment wigo --cascade=foreground
 kubectl apply -f k8s/wigo.yaml
 
 kubectl delete hpa wigo
 kubectl autoscale deployment wigo --cpu-percent=60 --min=3 --max=15
 
 kubectl delete service wigo
-kubectl expose deployment wigo --type=LoadBalancer --port=8080 --target-port=4000
+kubectl expose deployment wigo --type=LoadBalancer --port=80 --target-port=4000
 
 kubectl get hpa wigo -w
