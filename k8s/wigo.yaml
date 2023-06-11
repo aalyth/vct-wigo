@@ -30,17 +30,16 @@ spec:
 
         livenessProbe:
           httpGet:
-            path: /
+            path: /hc
             port: 4000 
             scheme: HTTP
           initialDelaySeconds: 5
           periodSeconds: 15
           timeoutSeconds: 5
 
-
         readinessProbe:
           httpGet:
-            path: /
+            path: /hc
             port: 4000 
             scheme: HTTP
           initialDelaySeconds: 5

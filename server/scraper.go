@@ -58,8 +58,10 @@ func getLinks(doc *goquery.Document, scraped *sync.Map, depth int, wg *sync.Wait
 var rule = textrank.NewDefaultRule()
 var lang = textrank.NewDefaultLanguage()
 var algorithm = textrank.NewDefaultAlgorithm()
-// matches all '[\d]' or any newlines ('\n')
-var reg = regexp.MustCompile(`(\[[0-9]+\])|(\n)`)
+// used to remove references and \n
+var ref_reg = regexp.MustCompile(`(\[[0-9]+\])|(\n)`)
+// gets the title from a given page url
+var title_reg = regexp.MustCompile(`wiki/`)
 
 func getSummary(doc *goquery.Document) []string {
 	text := doc.Find(".mw-parser-output p").Text()
@@ -71,7 +73,7 @@ func getSummary(doc *goquery.Document) []string {
 	var res []string
 	for i, s := range sentences {
 		if i >= 2 { break }	
-		res = append(res, reg.ReplaceAllString(s.Value, ""))
+		res = append(res, ref_reg.ReplaceAllString(s.Value, ""))
 	}
 
 	return res
@@ -108,7 +110,8 @@ func scrape(page string, depth int, scraped *sync.Map, wg *sync.WaitGroup, resul
 
 	var curr Page
 	curr.Url = "https://en.m.wikipedia.org/" + page;
-	curr.Title = doc.Find(".mw-page-title-main").Text()
+	// curr.Title = doc.Find(".mw-page-title-main").Text()
+	curr.Title = strings.Title( title_reg.ReplaceAllLiteralString(page, "") )
 	getLinks(doc, scraped, depth, wg, result)
 	curr.Summary = getSummary(doc)
 

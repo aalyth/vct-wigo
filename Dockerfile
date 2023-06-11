@@ -8,6 +8,6 @@ COPY server/* ./
 RUN go mod download
 RUN go build -o /app/wigo 
 
-EXPOSE 8080 
+EXPOSE 4000 
 
 CMD ["/app/wigo"]
