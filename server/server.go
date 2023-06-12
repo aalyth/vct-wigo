@@ -7,10 +7,6 @@ import (
 	"github.com/JGLTechnologies/gin-rate-limit"
 )
 
-func def(c *gin.Context) {
-	c.IndentedJSON(200, "deeba")
-}
-
 func wiki_crawl(c *gin.Context) {
 	url := c.Query("url")
 	depth_ := c.Query("depth")
@@ -21,7 +17,7 @@ func wiki_crawl(c *gin.Context) {
 		return
 	}
 	if depth < 1 || depth > 3 {
-		c.JSON(400, gin.H{"Error": "invalid depth - expected an int between 1 and 5."})
+		c.JSON(400, gin.H{"Error": "invalid depth - expected an int between 1 and 3."})
 		return
 	}
 
