@@ -22,7 +22,7 @@ function handleEnter(event) {
 }
 
 async function handleRequest() {
-	const url = url_bar.value
+	const url = (url_bar.value).replace(/\s/g, '_')
 	const depth = parseInt(depth_bar.value)
 
 	if (depth < 1 || depth > 3 || isNaN(depth)) { 
