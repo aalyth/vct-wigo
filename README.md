@@ -21,7 +21,7 @@ Each pod is a WiGo server instance that is able to process request. The minimal 
 In order to split the traffic between all running pods, the WiGo service is deployed with the `--type=LoadBalancer`. This way Kubernetes automatically creates the LoadBalancer and [performs periodic HC](https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#external-load-balancer-providers) in order to keep it running.
 
 ### Security
-The K8s LB automatically filters user traffic, so users can't directly access the  `/api/wiki` endpoint of the pods, while the user clients can.
+Because users have access to the `/api/wiki` endpoint, the server has a request limit - any client can only use the endpoint once every 2 seconds.
 
 <p align="center">
   <img src="https://github.com/aalyth/vct-wigo/blob/main/others/architecture.png"/>
