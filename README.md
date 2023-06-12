@@ -13,6 +13,13 @@ Once the project has been deployed you can go to localhost:8080 and acess the we
   <img src="https://github.com/aalyth/vct-wigo/assets/61279622/543212be-29e4-4c96-9f79-e5a5f00fb72d" width="850" height="800"/>
 </p>
 
+## Used technologies
+### Frontend
+For the frontend I used vanilla HTML / CSS / JS. 
+
+### Backend
+For the backend I used Go with the Gin web server framework, together with GoQuery. The reason I chose Go is because I wanted this project to be as efficient as possible. In order to achieve maximum efficiency while crawling, I made use of the Go goroutines and the blazingly fast Gin framework.
+
 ## Architecture
 ### Pods
 Each pod is a WiGo server instance that is able to process request. The minimal number of WiGo pods running is 3, but when traffic gets bigger the HPA (Horizontal Pod Autoscale) can scale up the number of pods up to 15. Kubernetes periodically performs Health Checks (HC) in order to respawn failed pods.
@@ -26,6 +33,3 @@ Because users have access to the `/api/wiki` endpoint, the server has a request 
 <p align="center">
   <img src="https://github.com/aalyth/vct-wigo/blob/main/others/architecture.png"/>
 </p>
-
-## Why did I choose Go?
-The reason I chose Go is because I wanted this project to be as efficient as possible. In order to achieve maximum efficiency while crawling, I made use of the Go goroutines and the blazingly fast Gin web server framework.
