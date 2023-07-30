@@ -8,7 +8,7 @@ In order to set up the project you need:
 In order to run the project run the script `setup.sh` and it will automatically deploy everything for you.
 
 ## How to use
-Once the project has been deployed you can go to localhost:8080 and acess the web app. Enter the name of the wikipedia article you want to crawl and the depth (must be between 1-3). The site will then display to you the found articles with a short summary to each one.
+Once the project has been deployed you can go to localhost and acess the web app. Enter the name of the wikipedia article you want to crawl and the depth (must be between 1-3). The site will then display to you the found articles with a short summary to each one.
 <p align="center">
   <img src="https://github.com/aalyth/vct-wigo/assets/61279622/543212be-29e4-4c96-9f79-e5a5f00fb72d" width="850" height="800"/>
 </p>
